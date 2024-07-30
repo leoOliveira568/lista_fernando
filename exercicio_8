@@ -1,0 +1,30 @@
+import java.util.Random;
+import java.util.Stack;
+
+public class TestaPilha {
+
+    public static void main(String[] args) {
+        Stack<Integer> pilhaP = new Stack<>();
+        Stack<Integer> pilhaN = new Stack<>();
+        Random rand = new Random();
+
+        // Sortea 1000 números 
+        for (int i = 0; i < 1000; i++) {
+            int numero = rand.nextInt(201) - 100; 
+
+            if (numero > 0) {
+                pilhaP.push(numero);
+            } else if (numero < 0) {
+                pilhaN.push(numero);
+            } else {
+                if (!pilhaP.isEmpty() && !pilhaN.isEmpty()) {
+                    int elementoP = pilhaP.pop();
+                    int elementoN = pilhaN.pop();
+                    System.out.println("Elemento da pilha P: " + elementoP);
+                    System.out.println("Elemento da pilha N: " + elementoN);
+                }
+            }
+        }
+    }
+}
+
