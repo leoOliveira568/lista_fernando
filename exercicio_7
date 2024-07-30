@@ -1,0 +1,36 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class InverterFila {
+
+    public static void main(String[] args) {
+        Queue<Integer> fila = new LinkedList<>();
+
+        // Preenche a fila com 20 números 
+        for (int i = 1; i <= 20; i++) {
+            fila.add(i);
+        }
+
+        System.out.println("Fila original: " + fila);
+
+        // Inverte a fila
+        inverterFila(fila);
+
+        System.out.println("Fila invertida: " + fila);
+    }
+
+    private static void inverterFila(Queue<Integer> fila) {
+        Stack<Integer> pilha = new Stack<>();
+
+        // Transferi todos os elementos da fila para a pilha
+        while (!fila.isEmpty()) {
+            pilha.push(fila.poll());
+        }
+
+        // Faz o contrário do while acima 
+        while (!pilha.isEmpty()) {
+            fila.add(pilha.pop());
+        }
+    }
+}
